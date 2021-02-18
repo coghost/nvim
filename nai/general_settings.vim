@@ -102,4 +102,4 @@ set mouse-=a              " MOUSE: set mouse-=a to disable
 set splitbelow                          " WINDOW: Horizontal splits will automatically be below
 set splitright                          " WINDOW: Vertical splits will automatically be to the right
 set showtabline=2                       " Always show tabs
-
+autocmd Filetype json setlocal ts=2 sw=2 expandtab
