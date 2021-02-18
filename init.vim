@@ -24,6 +24,7 @@ source $HOME/.config/nvim/nai/cfg_plugs/git.vim
 source $HOME/.config/nvim/nai/cfg_plugs/moving.vim
 source $HOME/.config/nvim/nai/cfg_plugs/program.vim
 source $HOME/.config/nvim/nai/cfg_plugs/python.vim
+source $HOME/.config/nvim/nai/cfg_plugs/go.vim
 source $HOME/.config/nvim/nai/cfg_plugs/task_mgmt.vim
 source $HOME/.config/nvim/nai/cfg_plugs/themes.vim
 source $HOME/.config/nvim/nai/cfg_plugs/typing.vim

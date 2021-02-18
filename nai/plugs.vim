@@ -22,6 +22,7 @@ function! GitTools() abort
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
     Plug 'APZelos/blamer.nvim'
+    Plug 'lambdalisue/gina.vim'
 endfunction
 
 function! Explorer() abort
@@ -47,6 +48,7 @@ function! Moving() abort
     Plug 'justinmk/vim-sneak'      " quick jump to 2 chars
     Plug 'unblevable/quick-scope'  " highlight for a unique char when us f,F
     Plug 'MattesGroeger/vim-bookmarks'
+    Plug 'andymass/vim-matchup'
 endfunction
 
 function! Programming() abort
@@ -60,6 +62,7 @@ function! Programming() abort
     Plug 'mbbill/undotree'                              " I can regret more
     Plug 'pedrohdz/vim-yaml-folds'                      " fold yaml file
     Plug 'ntpeters/vim-better-whitespace'               " remove whitespace
+    Plug 'thinca/vim-quickrun'
 endfunction
 
 function! PythonDedicated() abort
@@ -67,8 +70,25 @@ function! PythonDedicated() abort
     Plug 'SirVer/ultisnips'                                " snippets
     Plug 'honza/vim-snippets'                              " real snippets
     Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh' }
-    Plug 'thinca/vim-quickrun'
     Plug 'tpope/vim-abolish'
+    Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+    Plug 'jupyter-vim/jupyter-vim'
+endfunction
+
+function! GoDedicated() abort
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+endfunction
+
+function! JsDedicated() abort
+    Plug 'yuezk/vim-js'
+    Plug 'HerringtonDarkholme/yats.vim'
+    Plug 'maxmellon/vim-jsx-pretty'
+endfunction
+
+function! LuaDedicated() abort
+    Plug 'xolox/vim-lua-ftplugin'
+    Plug 'vim-scripts/luainspect.vim'
+    Plug 'xolox/vim-misc'
 endfunction
 
 function! TaskManagement() abort
@@ -82,6 +102,9 @@ function! Themes() abort
     " Plug 'kaicataldo/material.vim', { 'branch': 'main' }
     " Plug 'joshdick/onedark.vim'
     Plug 'jsit/toast.vim'
+    Plug 'NLKNguyen/papercolor-theme'
+    Plug 'ayu-theme/ayu-vim'
+    Plug 'mhartington/oceanic-next'
 endfunction
 
 function! Typing() abort
@@ -95,6 +118,7 @@ function! UIUE() abort
     Plug 'machakann/vim-highlightedyank' " highlight yank
     Plug 'luochen1990/rainbow'           " colorful matched ({})
     Plug 'psliwka/vim-smoothie'          " wonderful scroll up/down experience
+    Plug 'dominikduda/vim_current_word'
 endfunction
 
 " load installed plugs
@@ -106,6 +130,9 @@ function! CustomizePlugs() abort
     call Moving()
     call Programming()
     call PythonDedicated()
+    " call GoDedicated()
+    " call JsDedicated()
+    call LuaDedicated()
     call TaskManagement()
     call Themes()
     call Typing()
