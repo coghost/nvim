@@ -5,12 +5,10 @@ if has_key(g:plugs, 'semshi')
     let g:semshi#filetypes = ['python']
     function! MapSemshi() abort
         if &filetype ==# 'python'
-            " ˚ == Alt+k
-            nmap <silent> ˚ :Semshi goto name prev<CR>
-            nmap <silent> <M-k> :Semshi goto name prev<CR>
-            " ∆ == Alt+j
-            nmap <silent> ∆ :Semshi goto name next<CR>
-            nmap <silent> <M-j> :Semshi goto name next<CR>
+            " nmap <silent> ˚ :Semshi goto name prev<CR>
+            nmap <silent> <C-k> :Semshi goto name prev<CR>
+            " nmap <silent> ∆ :Semshi goto name next<CR>
+            nmap <silent> <C-j> :Semshi goto name next<CR>
 
             nmap <silent> ]C :Semshi goto class next<CR>
             nmap <silent> [C :Semshi goto class prev<CR>
@@ -40,9 +38,36 @@ endif
 
 
 " --------------------------------------------------
-" vim-quickrun
+" vim-pydocstring
 " --------------------------------------------------
-if has_key(g:plugs, 'vim-quickrun')
-    nmap <F5> <Plug>(quickrun)
+if has_key(g:plugs, 'vim-pydocstring')
+    nmap <silent> <C-_> <Plug>(pydocstring)
+    let g:pydocstring_formatter = 'google'
 endif
 
+
+" --------------------------------------------------
+" jupyter-vim
+" --------------------------------------------------
+if has_key(g:plugs, 'jupyter-vim')
+    " let g:jupyter_mapkeys = 0
+    " Run current file
+    nnoremap <buffer> <silent> <leader>R :JupyterRunFile<CR>
+    nnoremap <buffer> <silent> <leader>I :PythonImportThisFile<CR>
+
+    " Change to directory of current file
+    nnoremap <buffer> <silent> <leader>d :JupyterCd %:p:h<CR>
+
+    " Send a selection of lines
+    nnoremap <buffer> <silent> <M-c> :JupyterSendCell<CR>
+    nnoremap <buffer> <silent> <leader>x :JupyterSendCell<CR>
+    nnoremap <buffer> <silent> <M-l> :JupyterSendRange<CR>
+    nnoremap <buffer> <silent> <leader>l :JupyterSendRange<CR>
+    nmap     <buffer> <silent> <leader>jv <Plug>JupyterRunTextObj
+    vmap     <buffer> <silent> <leader>jv <Plug>JupyterRunVisual
+
+    nnoremap <buffer> <silent> <leader>U :JupyterUpdateShell<CR>
+
+    " Debugging maps
+    nnoremap <buffer> <silent> <localleader>B :PythonSetBreak<CR>
+endif
