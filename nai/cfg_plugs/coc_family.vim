@@ -11,6 +11,8 @@ function! CustomCocFzfPreview() abort
     nnoremap <silent> <Space>g     :<C-u>CocCommand fzf-preview.FromResources project_mru git<CR>
     nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
     nnoremap <silent> <M-s>    :<C-u>CocCommand fzf-preview.GitStatus<CR>
+    nnoremap <silent> <C-a>    :<C-u>CocCommand fzf-preview.GitStatus<CR>
+    nnoremap <silent> <C-s>    :<C-u>CocCommand fzf-preview.GitStatus<CR>
     nnoremap <silent> [fzf-p]ga    :<C-u>CocCommand fzf-preview.GitActions<CR>
     nnoremap <silent> [fzf-p]b     :<C-u>CocCommand fzf-preview.Buffers<CR>
     nnoremap <silent> <Space>b     :<C-u>CocCommand fzf-preview.AllBuffers<CR>
@@ -41,7 +43,18 @@ function! CustomCocFzfPreview() abort
     let g:fzf_preview_use_dev_icons = 1
     let g:fzf_preview_dev_icons_limit = 5000
     let g:fzf_preview_dev_icon_prefix_string_length = 3
-    let g:fzf_preview_fzf_preview_window_option = 'right:60%'
+    let g:fzf_preview_fzf_preview_window_option = 'right:62%'
+    " let $FZF_PREVIEW_PREVIEW_BAT_THEME = 'ansi-dark'
+    augroup fzf_preview
+        autocmd!
+        autocmd User fzf_preview#rpc#initialized call s:fzf_preview_settings() " fzf_preview#remote#initialized or fzf_preview#coc#initialized
+    augroup END
+
+    function! s:fzf_preview_settings() abort
+        let g:fzf_preview_command = 'COLORTERM=truecolor ' . g:fzf_preview_command
+        let g:fzf_preview_grep_preview_cmd = 'COLORTERM=truecolor ' . g:fzf_preview_grep_preview_cmd
+    endfunction
+    autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 endfunction
 
 
@@ -122,6 +135,14 @@ endfunction
 
 
 " --------------------------------------------------
+" coc-go
+" --------------------------------------------------
+function! CustomCocGo() abort
+    autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+endfunction
+
+
+" --------------------------------------------------
 " coc.vim
 " --------------------------------------------------
 if has_key(g:plugs, 'coc.nvim')
@@ -130,18 +151,25 @@ if has_key(g:plugs, 'coc.nvim')
     " \ 'coc-pyright',
     let g:coc_global_extensions = [
                 \ 'coc-actions',
+                \ 'coc-css',
+                \ 'coc-eslint',
                 \ 'coc-explorer',
                 \ 'coc-flutter-tools',
+                \ 'coc-fzf-preview',
+                \ 'coc-go',
                 \ 'coc-highlight',
+                \ 'coc-html',
                 \ 'coc-json',
                 \ 'coc-markdownlint',
                 \ 'coc-pairs',
-                \ 'coc-fzf-preview',
+                \ 'coc-prettier',
                 \ 'coc-pyright',
                 \ 'coc-sh',
                 \ 'coc-snippets',
                 \ 'coc-spell-checker',
                 \ 'coc-syntax',
+                \ 'coc-tslint-plugin',
+                \ 'coc-tsserver',
                 \ 'coc-vimlsp',
                 \ 'coc-yaml'
                 \]
@@ -282,5 +310,8 @@ if has_key(g:plugs, 'coc.nvim')
     if index(g:coc_global_extensions, 'coc-spell-checker') != -1
         call CustomCocSpellChecker()
     endif
-endif
 
+    if index(g:coc_global_extensions, 'coc-go') != -1
+        call CustomCocGo()
+    endif
+endif
