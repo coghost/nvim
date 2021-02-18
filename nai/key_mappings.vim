@@ -12,6 +12,8 @@ nmap <leader>WQ :wa<CR>:q<CR>
 nnoremap <leader>q :bd<CR>
 nnoremap <leader>Q :bd!<CR>
 nnoremap <leader>q1 :bd!<CR>
+nnoremap bq :bd!<CR>
+" close all but current buffer `:%bd|e#<CR>`
 nnoremap <leader>qq :qall<CR>
 nnoremap <leader>w :w<CR>
 " [WARN: sudo trick]
@@ -56,10 +58,10 @@ nnoremap <silent> g* g*zz
 
 
 " Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+map <M-j> <C-W>j
+map <M-k> <C-W>k
+map <M-h> <C-W>h
+map <M-l> <C-W>l
 
 " no need to press Esc
 inoremap jk <Esc>
@@ -88,3 +90,6 @@ inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr> <c-j> ("\<C-n>")
 inoremap <expr> <c-k> ("\<C-p>")
 
+" remap alt-a/x to C-a/x
+nnoremap <M-a> <C-a>
+nnoremap <M-x> <C-x>

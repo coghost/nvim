@@ -41,14 +41,14 @@ endif
 " --------------------------------------------------
 if has_key(g:plugs, 'vim-clap')
     " alt+c == ç
-    nnoremap <silent> ç :Clap<CR>
-    nnoremap <silent> <M-c> :Clap bcommits<CR>
+    " nnoremap <silent> ç :Clap<CR>
+    " nnoremap <silent> <M-c> :Clap bcommits<CR>
     " alt+f == ƒ
-    nnoremap <silent> ƒ :Clap files<CR>
-    nnoremap <silent> <M-f> :Clap bcommits<CR>
+    " nnoremap <silent> ƒ :Clap files<CR>
+    " nnoremap <silent> <M-f> :Clap bcommits<CR>
     " alt+b == ∫
-    nnoremap <silent> ∫ :Clap bcommits<CR>
-    nnoremap <silent> <M-b> :Clap bcommits<CR>
+    " nnoremap <silent> ∫ :Clap bcommits<CR>
+    " nnoremap <silent> <M-b> :Clap bcommits<CR>
 endif
 
 
@@ -93,9 +93,7 @@ if has_key(g:plugs, 'rnvimr')
     let g:rnvimr_ranger_cmd = 'ranger --cmd="set draw_borders both"'
     highlight link RnvimrNormal CursorLine
     " nmap <Space>p :RnvimrToggle<CR>
-    nnoremap <silent> ø :RnvimrToggle<CR>
     nnoremap <silent> <M-o> :RnvimrToggle<CR>
-    tnoremap <silent> ø <C-\><C-n>:RnvimrToggle<CR>
     tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
     let g:rnvimr_action = {
                 \ '<C-t>': 'NvimEdit tabedit',
@@ -164,4 +162,12 @@ if has_key(g:plugs, 'vim-startify')
                 \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
                 \ { 'type': 'commands',  'header': ['   Commands']       },
                 \ ]
+endif
+
+
+" --------------------------------------------------
+" vim-rooter
+" --------------------------------------------------
+if has_key(g:plugs, 'vim-rooter')
+    let g:rooter_patterns = ['!=*.go']
 endif

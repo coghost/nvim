@@ -2,7 +2,8 @@
 " far.vim
 " --------------------------------------------------
 if has_key(g:plugs, 'far.vim')
-    set regexpengine=1
+    set lazyredraw
+    " set regexpengine=1
     set ignorecase smartcase  " ignore case only when the pattern contains no capital letters
     " shortcut for far.vim find
     nnoremap <silent> <Find-Shortcut>  :Farf<cr>
@@ -57,4 +58,13 @@ if has_key(g:plugs, 'vim-better-whitespace')
     nnoremap [w :PrevTrailingWhitespace<CR>
     autocmd FileType python,javascript,c,cpp,ruby EnableStripWhitespaceOnSave
     let g:better_whitespace_filetypes_blacklist=['dashboard', 'todoist']
+endif
+
+
+" --------------------------------------------------
+" vim-quickrun
+" --------------------------------------------------
+if has_key(g:plugs, 'vim-quickrun')
+    nmap <F5> <Plug>(quickrun)
+    nmap <M-r> <Plug>(quickrun)
 endif

@@ -118,7 +118,7 @@ function! s:ZoomToggle() abort
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 " this is usful when there are more than one windows
-nnoremap <silent> <Leader>z :ZoomToggle<CR>
+nnoremap <silent> <space>z :ZoomToggle<CR>
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 com! ListTodo :vimgrep /\<TODO\>/j % | :cope

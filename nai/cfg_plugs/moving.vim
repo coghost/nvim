@@ -32,9 +32,9 @@ if has_key(g:plugs, 'vim-airline')
     nmap <Space>8 <Plug>AirlineSelectTab8
     nmap <Space>9 <Plug>AirlineSelectTab9
     nnoremap <F1> :b#<CR>
-    nnoremap ‘ :bn<CR>
+    nnoremap <Space>0 :b#<CR>
+    nnoremap <M-0> :b#<CR>
     nnoremap <M-]> :bn<CR>
-    nnoremap “ :bp<CR>
     nnoremap <M-[> :bp<CR>
     let g:airline_section_z = "%p%% %{g:airline_symbols.linenr}%l/%L \ue0a1:%c"
 endif
