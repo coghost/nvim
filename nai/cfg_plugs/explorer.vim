@@ -2,7 +2,7 @@
 " vista.vim
 " --------------------------------------------------
 if has_key(g:plugs, 'vista.vim')
-    nmap <F9> :Vista!!<CR>
+    " nmap <F9> :Vista!!<CR>
 
     function! NearestMethodOrFunction() abort
         return get(b:, 'vista_nearest_method_or_function', '')

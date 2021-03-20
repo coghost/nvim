@@ -61,7 +61,7 @@ if has_key(g:plugs, 'jupyter-vim')
     " Send a selection of lines
     nnoremap <buffer> <silent> <M-c> :JupyterSendCell<CR>
     nnoremap <buffer> <silent> <leader>x :JupyterSendCell<CR>
-    nnoremap <buffer> <silent> <M-l> :JupyterSendRange<CR>
+    nnoremap <buffer> <silent> <M-,> :JupyterSendRange<CR>
     nnoremap <buffer> <silent> <leader>l :JupyterSendRange<CR>
     nmap     <buffer> <silent> <leader>jv <Plug>JupyterRunTextObj
     vmap     <buffer> <silent> <leader>jv <Plug>JupyterRunVisual
@@ -70,4 +70,12 @@ if has_key(g:plugs, 'jupyter-vim')
 
     " Debugging maps
     nnoremap <buffer> <silent> <localleader>B :PythonSetBreak<CR>
+endif
+
+" --------------------------------------------------
+" vimspector
+" --------------------------------------------------
+if has_key(g:plugs, 'vimspector')
+    let g:vimspector_enable_mappings = 'HUMAN'
+    " nmap <F3> <Plug>VimspectorContinue
 endif

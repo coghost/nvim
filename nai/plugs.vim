@@ -69,10 +69,11 @@ function! PythonDedicated() abort
     Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'} " python colorize
     Plug 'SirVer/ultisnips'                                " snippets
     Plug 'honza/vim-snippets'                              " real snippets
-    Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh' }
+    " Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh' }
     Plug 'tpope/vim-abolish'
     Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
     Plug 'jupyter-vim/jupyter-vim'
+    Plug 'puremourning/vimspector'
 endfunction
 
 function! GoDedicated() abort
@@ -130,7 +131,8 @@ function! CustomizePlugs() abort
     call Moving()
     call Programming()
     call PythonDedicated()
-    " call GoDedicated()
+    call GoDedicated()
+    call Markdowns()
     " call JsDedicated()
     call LuaDedicated()
     call TaskManagement()
